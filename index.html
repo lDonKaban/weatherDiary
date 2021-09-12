@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <link href="./css/style.css" rel="stylesheet" type="text/css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1>Дневник погоды</h1>
+                <div class="filter">
+                    <h3>Показать погоду в период</h3>
+                    <form action="#" class="filter__date">
+                        <div class="field">
+                            <label>с</label>
+                            <input type="datetime-local" name="fromDate"/>
+                        </div>
+                        <div class="field">
+                            <label>по</label>
+                            <input type="datetime-local" name="toDate"/>
+                        </div>
+                        <div class="field">
+                            <label></label>
+                            <input type="submit" value="Ok" class="button filterBtn">
+                        </div>
+                    </form>
+                </div>
+                <input type="button" value="Показать погоду за весь период" class="button filterOffBtn">
+            </header>
+            <main class="main">
+                <!--Сайдбар-->
+                <aside class="sidebar">
+                    <form action="#" class="new_day__form">
+                        <div class="new_day__inputs">
+                            <input required type="text" class="order__input" placeholder="Дата и время" name="dateTime" onfocus="(this.type='datetime-local')" onblur="if(this.value==''){this.type='text'}">
+                            <input required placeholder="Давление (мм.рт.ст.)" name="pressure" type="number" class="order__input">
+                            <input required placeholder="Скорость ветра (м/с)" name="windSpeed" type="number" class="order__input">
+                            <input required placeholder="Влажность (%)" name="wet" type="number" class="order__input">
+                            <div class="temp">    
+                                <select name="orientation" class="orientation">
+                                    <option value="+" selected>+</option>
+                                    <option value="-">-</option>
+                                </select>
+                                <input required placeholder="Температура (С)" name="temp" type="number" class="order__input temp">
+                            </div>
+                        </div>
+            
+                        <div class="new_day__selects">
+                            <select name="cloudy" id="cloudy">
+                                <option value="" disabled selected>-- Облачность --</option>
+                                <option value="Ясно" rel="icon-temperature">Ясно</option>
+                                <option value="Малооблачно">Малооблачно</option>
+                                <option value="Облачно с прояснениями">Облачно с прояснениями</option>
+                                <option value="Пасмурно">Пасмурно</option>
+                            </select> 
+                            
+                            <select name="windDirection" id="wind">
+                                <option value="" disabled selected>-- Направление ветра --</option>
+                                <option value="Север">Север</option>
+                                <option value="Юг">Юг</option>
+                                <option value="Запад">Запад</option>
+                                <option value="Восток">Восток</option>
+                                <option value="Северо-восток">Северо-восток</option>
+                                <option value="Северо-запад">Северо-запад</option>
+                                <option value="Юго-восток">Юго-восток</option>
+                                <option value="Юго-запад">Юго-запад</option>
+                            </select>
+            
+                            <select name="naturalPhenomenal" id="natural_phenomena">
+                                <option value="" disabled selected>-- Природные явления --</option>
+                                <option value="Гроза">Гроза</option>
+                                <option value="Дождь">Дождь</option>
+                                <option value="Туман">Туман</option>
+                                <option value="Град">Град</option>
+                                <option value="Снег">Снег</option>
+                                <option value="Гололед">Гололед</option>
+                                <option value="Метель">Метель</option>
+                                <option value="Изморозь">Изморозь</option>
+                                <option value="Нет">Нет</option>
+                            </select>
+            
+                        </div>  
+                        <input type="submit" value="Добавить" class="new_day__button">
+                    </form>
+                </aside> <!--Конец Сайдбара-->
+
+                <!--Контент-->
+                <section class="content">
+                    <section class="content__weather weather">
+                        <h2 class="weather__title">Погода</h2>
+                        <div class="weather__data"></div>
+                        <ul id="pagination"></ul>
+                    </section>
+                    <section class="charts">
+                        <h2 class="charts__title">Графики погоды</h2>
+                        <div class="charts">
+                            <div class="charts__card">
+                                <div class="weather__charts" id="chart">
+                                    <div data-el="tooltip" class="chart-tooltip"></div>  
+                                    <canvas data-el="main"></canvas>
+
+                                    <div class="chart-slider" data-el="slider">
+                                        <canvas></canvas>
+                                        <div data-el="left" class="chart-slider__left">
+                                          <div
+                                            class="chart-slider__arrow--left"
+                                            data-el="arrow"
+                                            data-type="left"
+                                          ></div>
+                                        </div>
+                            
+                                        <div
+                                          data-el="window"
+                                          data-type="window"
+                                          class="chart-slider__window"
+                                        ></div>
+                            
+                                        <div data-el="right" class="chart-slider__right">
+                                          <div
+                                            class="chart-slider__arrow--right"
+                                            data-el="arrow"
+                                            data-type="right"
+                                          ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <select name="change_charts" id="change_charts">
+                                <option value="Температура" selected>Температура</option>
+                                <option value="Давление">Давление</option>
+                            </select>
+                        </div>
+                        
+                    </section>
+                </section> <!--Конец контента-->
+            </main>
+            <footer class="footer">
+                <div class="footer__copy">Copy, 2021</div>
+                <div class="footer__text">Lorem ipsum dolor sit amet.</div>
+            </footer>
+        </div>
+        <script src="./js/bundle.js"></script>
+    </body>
+</html>
