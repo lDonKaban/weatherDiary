@@ -1,8 +1,6 @@
 # weatherDiary
-In this project used json-server and webpack, for installing this npm-packages you need to install Node.js on your PC (reference for download: https://nodejs.org/en/).
-Then you must to download this project on your PC, unzip archive and open it in VsCode, or enemy code editor.
-In terminal of this project you must write: npm i. This command installing on your PC all packages, which used in project.
-Then, again in terminal, you must start json-server and webpack. Write this commands in different terminal windows: 
-  1) npx start json-server db.json
-  2) npx webpack
-After this, you must to open project with the help of some local servers (live server, open server, ...)
+В данном проекте используются json-server и webpack, для их установки необходимо иметь на компьютере установленный Node.js (ссылка для скачивания: https://nodejs.org/en/).
+После установки Node.js, необходимо скачать данный проект, разархивировать папку с проектом, если вы скачали архив, и открыть его в VsCode, либо любом другом редакторе кода.
+В терминале проекта необходимо прописать: npm i. Эта комманда устанавливает на ваш компьютер все пакеты, которые используются в проекте.
+Далее, чтобы запустить json-server и webpack, необходимо открыть два терминала и прописать в одном "npx start json-server db.json", а в другом "npx webpack", в результате в обоих терминалах должны появиться сообщения об успешном запуске пакетов.
+После всех выполненных действий, с помощью любого локального сервера (live server / open server...) запустите проект.
