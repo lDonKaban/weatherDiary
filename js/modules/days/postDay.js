@@ -1,4 +1,6 @@
 import {postData} from '../services/services';
+import formData from './fomData';
+import showData from './showData';
 
 function postDay (formSelector) {
 
