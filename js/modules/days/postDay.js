@@ -1,5 +1,5 @@
 import {postData} from '../services/services';
-import formData from './fomData';
+import formData from './formData';
 import showData from './showData';
 
 function postDay (formSelector) {
